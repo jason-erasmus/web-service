@@ -1,0 +1,19 @@
+1.Post li on bast.html place holder to change
+2. find data sets to work with
+3 create and import into SQLite
+4. Read UserCreationForm and User Django docs
+5. checkout logout error - need to create form with POST request
+
+Todo:
+1. Create Django project and app - DONE
+2. link app to project - DONE
+3. Create db models - DONE
+4. create base html - DONE
+5. link urls app and main - Error with Home button? - DONE
+6. create login form - DONE
+6a. create sign up page html copy login and add to urls.py - DONE
+7. import db
+8. plotly?
+9. add include(django.contrib.auth.urls to backend urls - DONE
+10. add path('home', views.home, name="homeW) to app urls - DONE
+11. settings add LOGIN_REDIRECT_URL = '/home' and LOGOUT_REDIRECT_URL = '/login'- DONE
