@@ -2,60 +2,30 @@ from django.db import models
 
 
 # Create your models here.
-class House_prices(models.Model):
-    """Model representing house prices in different regions."""
+class House_Prices(models.Model):
+    """model representing house prices in different regions."""
 
-    Date = models.DateField(primary_key=True)
-    Region_Name = models.CharField(max_length=100)
-    Area_Code = models.CharField(max_length=10)
-    Detached_Average_Price = models.DecimalField(
-        max_digits=10, decimal_places=10, null=True, blank=True
-    )
-    Detached_Index = models.DecimalField(
-        max_digits=10, decimal_places=10, null=True, blank=True
-    )
-    Detached_Monthly_Change = models.DecimalField(
-        max_digits=10, decimal_places=10, null=True, blank=True
-    )
-    Detached_Annual_Change = models.DecimalField(
-        max_digits=10, decimal_places=10, null=True, blank=True
-    )
-    Semi_Detached_Average_Price = models.DecimalField(
-        max_digits=10, decimal_places=10, null=True, blank=True
-    )
-    Semi_Detached_Index = models.DecimalField(
-        max_digits=10, decimal_places=10, null=True, blank=True
-    )
-    Semi_Detached_Monthly_Change = models.DecimalField(
-        max_digits=10, decimal_places=10, null=True, blank=True
-    )
-    Semi_Detached_Annual_Change = models.DecimalField(
-        max_digits=10, decimal_places=10, null=True, blank=True
-    )
-    Terraced_Average_Price = models.DecimalField(
-        max_digits=10, decimal_places=10, null=True, blank=True
-    )
-    Terraced_Index = models.DecimalField(
-        max_digits=10, decimal_places=10, null=True, blank=True
-    )
-    Terraced_Monthly_Change = models.DecimalField(
-        max_digits=10, decimal_places=10, null=True, blank=True
-    )
-    Terraced_Annual_Change = models.DecimalField(
-        max_digits=10, decimal_places=10, null=True, blank=True
-    )
-    Flat_Average_Price = models.DecimalField(
-        max_digits=10, decimal_places=10, null=True, blank=True
-    )
-    Flat_Index = models.DecimalField(
-        max_digits=10, decimal_places=10, null=True, blank=True
-    )
-    Flat_Monthly_Change = models.DecimalField(
-        max_digits=10, decimal_places=10, null=True, blank=True
-    )
-    Flat_Annual_Change = models.DecimalField(
-        max_digits=10, decimal_places=10, null=True, blank=True
-    )
+    date = models.DateField()
+    region_name = models.CharField(max_length=100)
+    detached_average_price = models.FloatField(null=True, blank=True)
+    detached_index = models.FloatField(null=True, blank=True)
+    detached_monthly_change = models.FloatField(null=True, blank=True)
+    detached_annual_change = models.FloatField(null=True, blank=True)
+    semi_detached_average_price = models.FloatField(null=True, blank=True)
+    semi_detached_index = models.FloatField(null=True, blank=True)
+    semi_detached_monthly_change = models.FloatField(null=True, blank=True)
+    semi_detached_annual_change = models.FloatField(null=True, blank=True)
+    terraced_average_price = models.FloatField(null=True, blank=True)
+    terraced_index = models.FloatField(null=True, blank=True)
+    terraced_monthly_change = models.FloatField(null=True, blank=True)
+    terraced_annual_change = models.FloatField(null=True, blank=True)
+    flat_average_price = models.FloatField(null=True, blank=True)
+    flat_index = models.FloatField(null=True, blank=True)
+    flat_monthly_change = models.FloatField(null=True, blank=True)
+    flat_annual_change = models.FloatField(null=True, blank=True)
 
     def __str__(self):
-        return f"{self.Region_Name}"
+        return f"{self.region_name}"
+
+    class meta:
+        ordering = ("date",)

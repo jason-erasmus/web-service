@@ -9,3 +9,16 @@ class RegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ["username", "email", "password1", "password2"]
+
+
+class DateForm(forms.Form):
+    start = forms.DateField(
+        widget=forms.DateInput(
+            attrs={"type": "date", "class": "form-control form-control-sm w-auto"}
+        )
+    )
+    end = forms.DateField(
+        widget=forms.DateInput(
+            attrs={"type": "date", "class": "form-control form-control-sm w-auto"}
+        )
+    )
