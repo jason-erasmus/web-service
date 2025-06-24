@@ -1,3 +1,4 @@
+import pandas as pd
 import plotly.express as px
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -14,19 +15,27 @@ def charts(request):
     start = request.GET.get("start")
     end = request.GET.get("end")
 
-    df = House_Prices.objects.all()
+    qs = House_Prices.objects.all()
     if start:
-        df = df.filter(date__gte=start)
+        qs = qs.filter(date__gte=start)
     if end:
-        df = df.filter(date__lte=end)
+        qs = qs.filter(date__lte=end)
 
-    fig = px.line(
-        x=[i.date for i in df],
-        y=[i.detached_average_price for i in df],
-        color=[i.region_name for i in df],
-        title="Detached House Prices Over Time",
-        labels={"x": "Date", "y": "Average Price in £"},
+    df = pd.DataFrame.from_records(
+        qs.values("date", "detached_average_price", "region_name")
     )
+
+    if df.empty:
+        print("no data")
+    else:
+        fig = px.line(
+            df,
+            x="date",
+            y="detached_average_price",
+            color="region_name",
+            title="Detached House Prices Over Time",
+            labels={"x": "Date", "y": "Average Price in £"},
+        )
 
     fig.update_layout(title={"font_size": 24, "xanchor": "center", "x": 0.5})
 
