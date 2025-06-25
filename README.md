@@ -1,3 +1,4 @@
+
 # Web-Service
 
 This is a sample site built using Django. It has a SQLite database with average house prices in the UK and a charting feature to visualize the data. The following frameworks and libraries were used: Django, BootStrap, crispy-forms and Plotly.
@@ -9,25 +10,20 @@ This is a sample site built using Django. It has a SQLite database with average 
 
 ## Installation
 
-Clone the repo and install dependencies:
+Download and run the build script  
+
+For Windows:
 
 ```bash
-git clone https://github.com/jason-erasmus/web-service.git
-cd web-service
+.\build.ps1
 ```
 
-Create a virtual environment (Recommended) and install packages using
+For MacOS/Linus:
 
 ```bash
-pip install -r requirements.txt
+.\build.sh
 ```
 
-Then go into backend dir using cd .\backend\
+The default development server IP should be http://localhost:8000/
 
-Then run this command to launch the server
 
-```bash
-python.exe .\manage.py runserver
-```
-
-The default development server IP should be http://127.0.0.1:8000/
