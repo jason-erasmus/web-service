@@ -18,7 +18,7 @@ For Windows:
 .\build.ps1
 ```
 
-For MacOS/Linus:
+For MacOS/Linux:
 
 ```bash
 .\build.sh

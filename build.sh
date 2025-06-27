@@ -17,11 +17,9 @@ docker compose build
 echo "Running Django migrations..."
 docker compose run server python manage.py migrate
 
-# Optional: Create superuser
-# echo "Creating Django superuser..."
-# docker compose run server python manage.py createsuperuser
 
 echo "Starting application..."
 docker compose up -d
 
-echo "Done! Visit http://localhost:8000"
+echo "Done! Visit http://localhost:3000"
+

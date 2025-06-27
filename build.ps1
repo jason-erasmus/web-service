@@ -16,9 +16,6 @@ docker compose build
 Write-Host "Running Django migrations..."
 docker compose run server python manage.py migrate
 
-# Optional: Create superuser
-# Write-Host "👤 Creating Django superuser..."
-# docker compose run server python manage.py createsuperuser
 
 Write-Host "Starting application..."
 docker compose up -d
