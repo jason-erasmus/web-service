@@ -1,6 +1,14 @@
-!/bin/bash
+#!/bin/bash
 
 set -e  # Exit immediately on error
+
+#Check if Docker is installed
+if ! command -v docker &> /dev/null; then
+    echo "Docker is not installed. Please install Docker and try again."
+    exit 1
+fi
+
+echo "Docker is installed. Continuing with build..."
 
 # --- Config ---
 REPO_URL="https://github.com/jason-erasmus/web-service.git"
@@ -15,7 +23,7 @@ echo "Building Docker image..."
 docker compose build
 
 echo "Running Django migrations..."
-docker compose run server python manage.py migrate
+docker compose run django python manage.py migrate
 
 
 echo "Starting application..."

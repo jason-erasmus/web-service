@@ -14,10 +14,10 @@ Write-Host "Building Docker image..."
 docker compose build
 
 Write-Host "Running Django migrations..."
-docker compose run server python manage.py migrate
+docker compose run django python manage.py migrate
 
 
 Write-Host "Starting application..."
 docker compose up -d
 
-Write-Host "Done! Visit http://localhost:8000"
+Write-Host "Done! Visit http://localhost:3000"
