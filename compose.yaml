@@ -46,12 +46,12 @@ services:
   metabase:
     image: metabase/metabase
     ports:
-      - "3000:3000"
+      - "3001:3000"
     volumes:
       - ./metabase-data:/metabase.db
       - ./backend/db.sqlite3:/data/db.sqlite3
     environment:
       - MB_DB_FILE=/metabase.db/metabase.db
 
-
+# current build does not load metabase need to fix this
 
